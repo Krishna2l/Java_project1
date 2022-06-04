@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
 
 public class LoanAssistant extends JFrame {
     
-    JLabel balanceLabel = new JLabel();
+JLabel balanceLabel = new JLabel();
 JTextField balanceTextField = new JTextField();
 JLabel interestLabel = new JLabel();
 JTextField interestTextField = new JTextField();
@@ -52,7 +52,7 @@ public LoanAssistant()
 {
 // frame constructor
 setTitle("Loan Assistant");
-setResizable(false);
+setResizable(true);
 addWindowListener(new WindowAdapter()
 {
 public void windowClosing(WindowEvent evt)
@@ -316,7 +316,7 @@ payment =
 Double.valueOf(paymentTextField.getText()).doubleValue();
 if (payment <= (balance * monthlyInterest + 1.0))
 {
-if (JOptionPane.showConfirmDialog(null, "Minimum payment must be $" +
+if (JOptionPane.showConfirmDialog(null, "Minimum payment must be Rs." +
 new DecimalFormat("0.00").format((int)(balance * monthlyInterest + 1.0)) + "\n" + "Do you want to use the minimum payment?", "Input Error", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
 {
 paymentTextField.setText(new DecimalFormat("0.00").format((int)(balance *
@@ -350,7 +350,7 @@ monthsTextField.setText(String.valueOf(months));
 payment =
 Double.valueOf(paymentTextField.getText()).doubleValue();
 // show analysis
-analysisTextArea.setText("Loan Balance: $" + new
+analysisTextArea.setText("Loan Balance: Rs." + new
 DecimalFormat("0.00").format(balance));
 analysisTextArea.append("\n" + "Interest Rate: " + new
 DecimalFormat("0.00").format(interest) + "%");
@@ -370,10 +370,10 @@ finalPayment = loanBalance;
 months++;
 monthsTextField.setText(String.valueOf(months));
 }
-analysisTextArea.append("\n\n" + String.valueOf(months - 1) + " Payments of $" + new DecimalFormat("0.00").format(payment));
-analysisTextArea.append("\n" + "Final Payment of: $" + new DecimalFormat("0.00").format(finalPayment));
-analysisTextArea.append("\n" + "Total Payments: $" + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment));
-analysisTextArea.append("\n" + "Interest Paid $" + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment - balance));
+analysisTextArea.append("\n\n" + String.valueOf(months - 1) + " Payments of Rs." + new DecimalFormat("0.00").format(payment));
+analysisTextArea.append("\n" + "Final Payment of: Rs." + new DecimalFormat("0.00").format(finalPayment));
+analysisTextArea.append("\n" + "Total Payments: Rs." + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment));
+analysisTextArea.append("\n" + "Interest Paid Rs." + new DecimalFormat("0.00").format((months - 1) * payment + finalPayment - balance));
 computeButton.setEnabled(false);
 newLoanButton.setEnabled(true);
 newLoanButton.requestFocus();
